@@ -1,0 +1,90 @@
+<%- include("template/cabecera", {tituloweb: 'contactos' }) %>
+
+  <div class="container">
+    <a class="btn btn-success btn-block my-4 form-control" href="contactos/crear">
+      Crear nuevo contacto
+    </a>
+    <div class="row justify-content-center">
+      <% if (arrayContactos.length> 0) { %>
+        <% arrayContactos.forEach(contacto=> { %>
+          <div class="card col-3 m-2 p-1" style="min-width: 24rem; max-width: 26rem;">
+            <div class="row justify-content-center">
+              <img class="card-img-top" style="min-width: 14rem; max-width: 16rem;" src=" <%= contacto.image %>"
+                alt="Card image cap">s
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">
+                <b>
+                  <%= contacto.last_name %>
+
+                </b>, <span>
+                  <%= contacto.name %>
+                </span>
+              </h5>
+              <div class="row">
+                <p class="card-text col-6">
+                  <%= contacto.email %>
+                </p>
+                <p class="card-text col-6">
+                  <%= contacto.phone %>
+                </p>
+              </div>
+              <div class="mt-3">
+                <a class="btn btn-warning btn-sm" style="position: absolute; left: 40%; bottom: 2%;"
+                  href="contactos/<%= contacto.id %>">
+                  Editar
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <% }) %>
+            <% } %>
+    </div>
+
+    <!-- 
+    <table class="table">
+      <thead>
+        <tr>w
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% if (arrayContactos.length> 0) { %>
+          <% arrayContactos.forEach(contacto=> { %>
+            <tr>
+              <th scope="row">
+                <%= contacto.id %>
+              </th>
+              <td>
+                <%= contacto.name %>
+              </td>
+              <td>
+                <%= contacto.email %>
+              </td>
+              <td>
+                <%= contacto.last_name %>
+              </td>
+              <td>
+                <%= contacto.phone %>
+              </td>
+              <td>
+                <a class="btn btn-warning btn-sm" href="contactos/<%= contacto.id %>">
+                  Editar
+                </a>
+              </td>
+            </tr>
+            <% }) %>
+              <% } %>
+      </tbody>
+    </table> -->
+  </div>
+
+
+  <%- include("template/footer") %>
